@@ -1,7 +1,7 @@
 /*global define*/
 
-define(['jquery', 'backbone', 'views/aboutView'],
-    function($, Backbone, AboutView) {
+define(['jquery', 'backbone', 'views/contentView', 'views/aboutView', 'views/contactView', 'views/workView', 'helpers/helper'],
+    function($, Backbone, ContentView, AboutView, ContactView, WorkView, Helper) {
         var Router = Backbone.Router.extend({
             //run routerChanged() on page change
             initialize: function() {
@@ -11,6 +11,8 @@ define(['jquery', 'backbone', 'views/aboutView'],
             routes: {
                 '': 'index',
                 'about': 'about',
+                'contact': 'contact',
+                'work': 'work',
                 '*action': 'error404'
             },
 
