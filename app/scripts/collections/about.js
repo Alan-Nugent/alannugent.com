@@ -1,4 +1,4 @@
-/*global define*/
+/*global define*
 
 define([
     'underscore',
@@ -13,3 +13,4 @@ define([
 
     return AboutCollection;
 });
+*/

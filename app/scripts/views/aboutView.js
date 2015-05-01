@@ -1,12 +1,10 @@
-/*global define*/
-
-define(['jquery', 'underscore', 'backbone', 'text!templates/about.html'],
-    function($, _, Backbone, template) {
+define(['jquery', 'underscore', 'backbone', 'text!templates/about.html', 'text!locale/about.json', 'text!locale/about-es.json'],
+    function($, _, Backbone, template, content, contentES) {
         'use strict';
 
         var AboutView = Backbone.View.extend({
 
-            el: 'main',
+            el: '#main',
 
             id: '',
 
@@ -16,18 +14,21 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/about.html'],
 
             model: '',
 
-            initialize: function() {
+            initialize: function(options) {
                 this.language = (options && options.language) || 'en-us';
 
                 this.render();
             },
 
             render: function() {
+
                 this.template = _.template(template, {
-                    content: JSON.pars((this.language == 'en_us') ? content : contentES)
+                    content: JSON.parse((this.language == 'en_us') ? content : contentES)
                 });
 
                 this.$el.html(this.template);
+
+                console.log('about');
                 return this;
             }
         });
