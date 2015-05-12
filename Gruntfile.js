@@ -20,6 +20,12 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+
+    grunt.registerTask('default', ['sass']);
+
 
     // configurable paths
     var yeomanConfig = {
@@ -29,7 +35,11 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         yeoman: yeomanConfig,
+        pkg: grunt.file.readJSON('package.json'),
+
         watch: {
+            files: '../assets/css/sass/**/*.scss', // 1
+            tasks: ['sass', 'cssmin'],
             options: {
                 nospawn: true,
                 livereload: LIVERELOAD_PORT
@@ -134,10 +144,11 @@ module.exports = function(grunt) {
                 }
             }
         },
+
         sass: {
             options: {
-                sourceMap: true,
-                includePaths: ['app/bower_components']
+                //sourcemap: none,
+                loadPath: ['app/bower_components']
             },
             dist: {
                 files: [{
@@ -370,4 +381,5 @@ module.exports = function(grunt) {
         'test',
         'build'
     ]);
+
 };
