@@ -1,0 +1,12 @@
+<div class="row">
+<a class="pull-left" href="javascript:void(0);" title="Alan Nugent - Front end developer" id="headerLogo">Alan Nugent<br><span>Front End Developer</span></a>
+<nav class="pull-right">
+	<ul class="nav nav-pills">
+		<% _.each(content.headerNav, function(obj, indext){ %>
+		<li>
+			<a href="<%= obj.linkText %>" title="<%= obj.title %>"><%= obj.text %></a>
+		</li>
+		<% }) %>
+	</ul>
+</nav>
+</div>

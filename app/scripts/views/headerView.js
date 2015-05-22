@@ -1,20 +1,12 @@
-/*global define*/
-
-define(['jquery', 'underscore', 'backbone', 'text!templates/work.html', 'text!locale/work.json'],
+define(['jquery', 'underscore', 'backbone', 'text!templates/header.html', 'text!locale/header.json'],
     function($, _, Backbone, template, content) {
         'use strict';
 
-        var WorkView = Backbone.View.extend({
+        var HeaderView = Backbone.View.extend({
 
-            el: '#main',
-
-            id: '',
-
-            className: '',
+            el: 'header',
 
             events: {},
-
-            model: '',
 
             initialize: function(options) {
                 this.language = (options && options.language) || 'en-us';
@@ -23,14 +15,17 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/work.html', 'text!lo
             },
 
             render: function() {
+
                 this.template = _.template(template, {
                     content: JSON.parse(content)
                 });
 
                 this.$el.html(this.template);
+
+                console.log('about');
                 return this;
             }
         });
 
-        return WorkView;
+        return HeaderView;
     });

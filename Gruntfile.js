@@ -61,12 +61,12 @@ module.exports = function(grunt) {
                     'test/spec/**/*.js'
                 ]
             },
-            jst: {
+            /* jst: {
                 files: [
                     '<%= yeoman.app %>/scripts/templates/*.ejs'
                 ],
                 tasks: ['jst']
-            },
+            },*/
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
                 tasks: ['test:true']
@@ -277,7 +277,7 @@ module.exports = function(grunt) {
                 rjsConfig: '<%= yeoman.app %>/scripts/main.js'
             }
         },
-        jst: {
+        /*jst: {
             options: {
                 amd: true
             },
@@ -286,7 +286,7 @@ module.exports = function(grunt) {
                     '.tmp/scripts/templates.js': ['<%= yeoman.app %>/scripts/templates/*.ejs']
                 }
             }
-        },
+        },*/
         rev: {
             dist: {
                 files: {
@@ -303,7 +303,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('createDefaultTemplate', function() {
-        grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
+        //grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
     });
 
     grunt.registerTask('server', function(target) {
@@ -320,7 +320,7 @@ module.exports = function(grunt) {
             return grunt.task.run([
                 'clean:server',
                 'createDefaultTemplate',
-                'jst',
+                /*'jst',*/
                 'sass',
                 'connect:test',
                 'open:test',
@@ -331,7 +331,7 @@ module.exports = function(grunt) {
         grunt.task.run([
             'clean:server',
             'createDefaultTemplate',
-            'jst',
+            /*'jst',*/
             'sass',
             'connect:livereload',
             'open:server',
@@ -344,7 +344,7 @@ module.exports = function(grunt) {
         var testTasks = [
             'clean:server',
             'createDefaultTemplate',
-            'jst',
+            /*'jst',*/
             'sass',
             'connect:test',
             'mocha',
@@ -362,7 +362,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'createDefaultTemplate',
-        'jst',
+        /*'jst',*/
         'sass:dist',
         'useminPrepare',
         'requirejs',
