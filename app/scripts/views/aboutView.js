@@ -1,18 +1,12 @@
-define(['jquery', 'underscore', 'backbone', 'text!templates/about.html', 'text!locale/about.json', 'text!locale/about-es.json'],
-    function($, _, Backbone, template, content, contentES) {
+define(['jquery', 'underscore', 'backbone', 'text!templates/about.html', 'text!locale/about.json'],
+    function($, _, Backbone, template, content) {
         'use strict';
 
         var AboutView = Backbone.View.extend({
 
             el: '#main',
 
-            id: '',
-
-            className: '',
-
             events: {},
-
-            model: '',
 
             initialize: function(options) {
                 this.language = (options && options.language) || 'en-us';
@@ -23,7 +17,7 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/about.html', 'text!l
             render: function() {
 
                 this.template = _.template(template, {
-                    content: JSON.parse((this.language == 'en_us') ? content : contentES)
+                    content: JSON.parse(content)
                 });
 
                 this.$el.html(this.template);

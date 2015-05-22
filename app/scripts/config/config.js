@@ -4,7 +4,10 @@ require.config({
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/lodash/dist/lodash',
         bootstrap: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
-        text: '../bower_components/requirejs-text/text'
+        text: '../bower_components/requirejs-text/text',
+
+        headerView: '../scripts/views/headerView',
+        footerView: '../scripts/views/footerView'
     },
     shim: {
         bootstrap: {

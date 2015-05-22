@@ -1,10 +1,11 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
+@import "mixins";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 @import "openSans";
 
 html {
-    font-size: 100%;
+    font-size: 62.5%;
 }
 
 body {
@@ -13,7 +14,40 @@ body {
 }
 
 header {
-    background: #fff;
+    background: #efefef;
+    #headerLogo {
+        @include font-size-REM(44);
+        @media screen and (min-width: $screen-md-min) {
+            @include font-size-REM(22);
+        }
+        margin: 10px 0 10px 10px;
+        font-family: 'OpenSansBolder';
+        line-height: .8;
+        letter-spacing: .04rem;
+        text-align: center;
+        span {
+            @include font-size-REM(27);
+            @media screen and (min-width: $screen-md-min) {
+                @include font-size-REM(13);
+            }
+            font-family: OpenSansRegular;
+            letter-spacing: 0.12rem;
+        }
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    nav {
+        margin-top: 10px;
+        li {
+            a {
+                font-family: 'OpenSansSemibold';
+                font-size: 15px;
+                padding: 0 15px;
+                text-transform: uppercase;
+            }
+        }
+    }
 }
 
 .subheader {
@@ -23,20 +57,20 @@ header {
     h1 {
         color: #fff;
         font-family: 'OpenSansBolder';
-        font-size: 26px;
+        @include font-size-REM(26);
         text-transform: uppercase;
         letter-spacing: .65rem;
     }
     p {
         color: #fff;
         font-family: 'OpenSansRegularItalic';
-        font-size: 18px;
+        @include font-size-REM(18);
         letter-spacing: .15rem;
     }
 }
 
 h2 {
-    font-size: 20px;
+    @include font-size-REM(20);
     font-family: 'OpenSansBold';
     text-transform: uppercase;
 }
@@ -45,6 +79,6 @@ h2 {
     padding-top: 40px;
     p {
         font-family: 'OpenSansRegularItalic';
-        font-size: 18px;
+        @include font-size-REM(18);
     }
 }

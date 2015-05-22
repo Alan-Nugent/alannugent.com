@@ -1,20 +1,12 @@
-/*global define*/
-
-define(['jquery', 'underscore', 'backbone', 'text!templates/work.html', 'text!locale/work.json'],
+define(['jquery', 'underscore', 'backbone', 'text!templates/footer.html', 'text!locale/footer.json'],
     function($, _, Backbone, template, content) {
         'use strict';
 
-        var WorkView = Backbone.View.extend({
+        var FooterView = Backbone.View.extend({
 
-            el: '#main',
-
-            id: '',
-
-            className: '',
+            el: 'footer',
 
             events: {},
-
-            model: '',
 
             initialize: function(options) {
                 this.language = (options && options.language) || 'en-us';
@@ -23,14 +15,16 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/work.html', 'text!lo
             },
 
             render: function() {
+
                 this.template = _.template(template, {
                     content: JSON.parse(content)
                 });
 
                 this.$el.html(this.template);
+
                 return this;
             }
         });
 
-        return WorkView;
+        return FooterView;
     });
