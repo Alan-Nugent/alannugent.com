@@ -13,6 +13,6 @@ require(['config/config'], function() {
 
 			Backbone.history.start();
 
-
+			//Helper.screenWidthDetection();
 		});
 })

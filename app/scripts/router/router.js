@@ -33,6 +33,7 @@ define(['jquery', 'backbone', 'views/contentView', 'views/aboutView', 'views/con
             },
             routerChanged: function(e) {
                 //add functions here to run on page load and change
+                Helper.screenWidthDetection();
             }
 
         });

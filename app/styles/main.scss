@@ -1,21 +1,86 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
+@import "variables-an";
 @import "mixins";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";
 @import "openSans";
+
+#screen-indicator {
+    position: absolute;
+    height: 0;
+    width: 0;
+    z-index: 1;
+}
+
+@media (max-width: 1199px) {
+    #screen-indicator {
+        z-index: 8;
+    }
+}
+
+@media (max-width: 991px) {
+    #screen-indicator {
+        z-index: 7;
+    }
+}
+
+@media (max-width: 767px) {
+    #screen-indicator {
+        z-index: 6;
+    }
+}
+
+@media (min-width: 480px) {
+    #screen-indicator {
+        z-index: 5;
+    }
+}
+
+@media (min-width: 768px) {
+    #screen-indicator {
+        z-index: 4;
+    }
+}
+
+@media (min-width: 992px) {
+    #screen-indicator {
+        z-index: 3;
+    }
+}
+
+@media (min-width: 1200px) {
+    #screen-indicator {
+        z-index: 2;
+    }
+}
 
 html {
     font-size: 62.5%;
 }
 
 body {
-    background: #e6dc37;
+    /* background: #e6dc37;*/
     color: #2e3740;
+    font-family: 'OpenSansRegular';
+    @include font-size-REM(14);
+}
+
+p {
+    @include font-size-REM(15);
+    &.lead {
+        font-family: 'OpenSansSemibold';
+        @include font-size-REM(17);
+    }
+}
+
+a {
+    color: #4472CA;
 }
 
 header {
     background: #efefef;
     #headerLogo {
+        color: #454B66;
         @include font-size-REM(44);
         @media screen and (min-width: $screen-md-min) {
             @include font-size-REM(22);
@@ -25,21 +90,58 @@ header {
         line-height: .8;
         letter-spacing: .04rem;
         text-align: center;
-        span {
-            @include font-size-REM(27);
+        small {
+            display: block;
+            @include font-size-REM(22);
             @media screen and (min-width: $screen-md-min) {
                 @include font-size-REM(13);
+                text-align: center;
             }
-            font-family: OpenSansRegular;
+            font-family: 'OpenSansRegular';
             letter-spacing: 0.12rem;
+            margin-top: 11px;
+            text-align: left;
         }
         &:hover {
             text-decoration: none;
         }
     }
-    nav {
+    .main-menu-toggle {
+        display: block;
+        border-color: #0160aa;
+        color: #0160aa;
+        float: left;
+        margin-right: 15px;
         margin-top: 10px;
+        @media screen and (min-width: $screen-xs-min) {
+            float: right;
+            display: inline-block;
+        }
+        @media screen and (max-width: $screen-md-min) {
+            margin-left: 15px;
+            margin-bottom: 10px;
+        }
+        &:focus, &:hover {
+            background-color: #0160aa;
+            border-color: #0160aa;
+            color: #fff;
+        }
+    }
+    nav {
+        position: absolute !important;
+        width: 100%;
+        top: 144px;
+        @media screen and (min-width: $screen-md-min) {
+            right: 0px;
+            width: 100px;
+            top: 44px;
+        }
+        background-color: #efefef;
         li {
+            @media screen and (max-width: $screen-md-min) {
+                float: none !important;
+                text-align: center;
+            }
             a {
                 font-family: 'OpenSansSemibold';
                 font-size: 15px;
@@ -55,15 +157,18 @@ header {
     padding-bottom: 75px;
     padding-top: 75px;
     h1 {
-        color: #fff;
+        color: #CF5C36;
         font-family: 'OpenSansBolder';
-        @include font-size-REM(26);
+        @include font-size-REM(25);
+        @media screen and (min-width: $screen-sm-min) {
+            @include font-size-REM(40);
+        }
         text-transform: uppercase;
         letter-spacing: .65rem;
     }
     p {
         color: #fff;
-        font-family: 'OpenSansRegularItalic';
+        font-family: 'OpenSansLight';
         @include font-size-REM(18);
         letter-spacing: .15rem;
     }
@@ -76,9 +181,111 @@ h2 {
 }
 
 .home {
+    padding-bottom: 40px;
     padding-top: 40px;
+    h2 {
+        text-align: center;
+    }
     p {
-        font-family: 'OpenSansRegularItalic';
-        @include font-size-REM(18);
+        font-family: 'OpenSansLight';
+        @include font-size-REM(17);
+    }
+}
+
+.about {
+    margin-top: 65px;
+    .section-title {
+        margin-top: 3px;
+        @media screen and (min-width: $screen-md-min) {
+            text-align: right;
+        }
+    }
+    p {
+        @media screen and (min-width: $screen-md-min) {
+            padding-left: 0;
+        }
+        &.school {
+            font-family: 'OpenSansBoldItalic';
+            @include font-size-REM(14);
+            margin-top: 0;
+        }
+    }
+    h3 {
+        &.position-title {
+            font-family: 'OpenSansRegular';
+            @include font-size-REM(14);
+            font-weight: 700;
+            margin-top: 3px;
+            > small {
+                font-family: 'OpenSansBoldItalic';
+                font-size: 80%;
+            }
+        }
+    }
+    .half {
+        li {
+            display: inline-block;
+            width: 47%;
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+            &:before {
+                content: '+';
+                padding: 0 5px 5px;
+                margin-right: 5px;
+                color: #CF5C36;
+                background-color: transparent;
+                display: inline-block;
+            }
+        }
+    }
+    .border-bottom-section {
+        border-bottom: 1px solid #2e3740;
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+    }
+    .position {
+        padding-bottom: 25px;
+        @media screen and (min-width: $screen-md-min) {
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-bottom: 50px;
+        }
+    }
+    .education {
+        h3 {
+            &.position-title {
+                @include font-size-REM(16);
+                margin-bottom: 0;
+            }
+        }
+        .list-unstyled {
+            font-family: 'OpenSansRegularItalic';
+            li {
+                &:before {
+                    content: '+';
+                    padding: 0 5px 5px;
+                    margin-right: 5px;
+                    color: #CF5C36;
+                    background-color: transparent;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background-color: #2e3740;
+    color: $white;
+    margin-top: 70px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    a {
+        color: $white;
+        &:focus, &:hover {
+            color: $white;
+        }
     }
 }
