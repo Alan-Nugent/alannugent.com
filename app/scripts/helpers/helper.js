@@ -154,6 +154,9 @@ define(["jquery", "backbone", "helpers/constants"],
                     // set focus to element for skip nav
                     $(focusedElement).focus();
                 });
+            },
+            screenWidthDetection: function() {
+                $('body').append('<div id="screen-indicator" tabindex="-1" aria-hidden="true"></div>');
             }
         }
 
