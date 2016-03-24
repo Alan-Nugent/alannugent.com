@@ -1,8 +1,8 @@
-$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
 @import "variables-an";
 @import "mixins";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
 @import "openSans";
 
 #screen-indicator {
