@@ -1,9 +1,17 @@
-$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+<<<<<<< Updated upstream
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
 @import "variables-an";
 @import "mixins";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+=======
+$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+@import "variables-an";
+@import "mixins";
+>>>>>>> Stashed changes
 @import "openSans";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+
 
 #screen-indicator {
     position: absolute;
