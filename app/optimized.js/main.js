@@ -1,0 +1,1 @@
+require(["config/config"],function(){"use strict";require(["jquery","backbone","bootstrap","helpers/constants","router/router","helpers/helper","headerView","footerView"],function(e,t,n,r,i,s,o,u){var a=r.en;new o,new u;var f=new i({language:a});t.history.start()})});

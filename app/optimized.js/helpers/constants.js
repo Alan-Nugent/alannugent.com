@@ -1,0 +1,1 @@
+define([],function(){"use strict;";var e={en:"EN",es:"ES",defaultLocale:"en",markupLocation:"scripts/templates/",contentLocation:"scripts/locale/"};return e});
