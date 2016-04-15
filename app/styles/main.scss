@@ -78,6 +78,7 @@ a {
 }
 
 header {
+    @extend .container-fluid;
     background: #efefef;
     #headerLogo {
         color: #454B66;
@@ -127,33 +128,40 @@ header {
             color: #fff;
         }
     }
-    nav {
-        position: absolute !important;
-        width: 100%;
-        top: 144px;
-        @media screen and (min-width: $screen-md-min) {
-            right: 0px;
-            width: 100px;
-            top: 44px;
-        }
-        background-color: #efefef;
-        li {
-            @media screen and (max-width: $screen-md-min) {
-                float: none !important;
-                text-align: center;
-            }
-            a {
-                font-family: 'OpenSansSemibold';
-                font-size: 15px;
-                padding: 0 15px;
-                text-transform: uppercase;
-            }
-        }
-    }
+    /* nav {
+         //position: absolute !important;
+         // width: 100%;
+         //top: 144px;
+         @media screen and (min-width: $screen-md-min) {
+             // right: 0px;
+             // width: 100px;
+             // top: 44px;
+         }
+         background-color: #efefef;
+         li {
+             @media screen and (max-width: $screen-md-min) {
+                 float: none !important;
+                 text-align: center;
+             }
+             a {
+                 font-family: 'OpenSansSemibold';
+                 font-size: 15px;
+                 padding: 0 15px;
+                 text-transform: uppercase;
+             }
+         }
+     }*/
 }
 
-.subheader {
+main {
+    @extend .container-fluid;
+}
+
+subheader {
+    @extend .row;
+    @extend .text-center;
     background-color: #2e3740;
+    display: block;
     padding-bottom: 75px;
     padding-top: 75px;
     h1 {
@@ -171,6 +179,53 @@ header {
         font-family: 'OpenSansLight';
         @include font-size-REM(18);
         letter-spacing: .15rem;
+    }
+}
+
+work {
+    @extend .row;
+    display: block;
+    website {
+        @extend .clearfix;
+        display: block;
+        @media (min-width: $screen-sm-min) {
+            display: flex;
+        }
+        figure {
+            @extend .col-sm-5;
+            background: #94B1C3;
+            padding: 100px 30px 100px 20px;
+            img {
+                @extend .img-responsive;
+            }
+            figcaption {
+                @extend .text-center;
+            }
+        }
+        description {
+            @extend .col-sm-7;
+            display: block;
+            @media (min-width: $screen-sm-min) {
+                display: inline-block;
+                padding-top: 125px;
+            }
+            h2 {
+                @include font-size-REM(26);
+            }
+            p {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        &:nth-child(even) {
+            figure {
+                background-color: $white;
+            }
+            description {
+                background: #ECCE66;
+            }
+        }
     }
 }
 
@@ -277,6 +332,7 @@ h2 {
 }
 
 footer {
+    @extend .container-fluid;
     background-color: #2e3740;
     color: $white;
     margin-top: 70px;
