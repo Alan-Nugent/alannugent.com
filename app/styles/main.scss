@@ -1,17 +1,8 @@
-<<<<<<< Updated upstream
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-
 @import "variables-an";
 @import "mixins";
-@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
-=======
-$icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
-@import "variables-an";
-@import "mixins";
->>>>>>> Stashed changes
 @import "openSans";
-@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
-
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+//@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
 
 #screen-indicator {
     position: absolute;
@@ -19,78 +10,72 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
     width: 0;
     z-index: 1;
 }
-
-@media (max-width: 1199px) {
+@media (max-width:1199px) {
     #screen-indicator {
         z-index: 8;
     }
 }
-
-@media (max-width: 991px) {
+@media (max-width:991px) {
     #screen-indicator {
         z-index: 7;
     }
 }
-
-@media (max-width: 767px) {
+@media (max-width:767px) {
     #screen-indicator {
         z-index: 6;
     }
 }
-
-@media (min-width: 480px) {
+@media (min-width:480px) {
     #screen-indicator {
         z-index: 5;
     }
 }
-
-@media (min-width: 768px) {
+@media (min-width:768px) {
     #screen-indicator {
         z-index: 4;
     }
 }
-
-@media (min-width: 992px) {
+@media (min-width:992px) {
     #screen-indicator {
         z-index: 3;
     }
 }
-
-@media (min-width: 1200px) {
+@media (min-width:1200px) {
     #screen-indicator {
         z-index: 2;
     }
 }
-
 html {
     font-size: 62.5%;
+    height: 100%;
 }
-
 body {
+
     /* background: #e6dc37;*/
     color: #2e3740;
     font-family: 'OpenSansRegular';
     @include font-size-REM(14);
+    height: 100%;
 }
-
 p {
     @include font-size-REM(15);
+
     &.lead {
         font-family: 'OpenSansSemibold';
         @include font-size-REM(17);
     }
 }
-
 a {
     color: #4472CA;
 }
-
 header {
     background: #efefef;
+
     #headerLogo {
         color: #454B66;
         @include font-size-REM(44);
-        @media screen and (min-width: $screen-md-min) {
+
+        @media screen and (min-width:$screen-md-min) {
             @include font-size-REM(22);
         }
         margin: 10px 0 10px 10px;
@@ -98,10 +83,12 @@ header {
         line-height: .8;
         letter-spacing: .04rem;
         text-align: center;
+
         small {
             display: block;
             @include font-size-REM(22);
-            @media screen and (min-width: $screen-md-min) {
+
+            @media screen and (min-width:$screen-md-min) {
                 @include font-size-REM(13);
                 text-align: center;
             }
@@ -121,11 +108,12 @@ header {
         float: left;
         margin-right: 15px;
         margin-top: 10px;
-        @media screen and (min-width: $screen-xs-min) {
+
+        @media screen and (min-width:$screen-xs-min) {
             float: right;
             display: inline-block;
         }
-        @media screen and (max-width: $screen-md-min) {
+        @media screen and (max-width:$screen-md-min) {
             margin-left: 15px;
             margin-bottom: 10px;
         }
@@ -139,14 +127,16 @@ header {
         position: absolute !important;
         width: 100%;
         top: 144px;
-        @media screen and (min-width: $screen-md-min) {
+
+        @media screen and (min-width:$screen-md-min) {
             right: 0px;
             width: 100px;
             top: 44px;
         }
         background-color: #efefef;
+
         li {
-            @media screen and (max-width: $screen-md-min) {
+            @media screen and (max-width:$screen-md-min) {
                 float: none !important;
                 text-align: center;
             }
@@ -159,16 +149,17 @@ header {
         }
     }
 }
-
 .subheader {
     background-color: #2e3740;
     padding-bottom: 75px;
     padding-top: 75px;
+
     h1 {
         color: #CF5C36;
         font-family: 'OpenSansBolder';
         @include font-size-REM(25);
-        @media screen and (min-width: $screen-sm-min) {
+
+        @media screen and (min-width:$screen-sm-min) {
             @include font-size-REM(40);
         }
         text-transform: uppercase;
@@ -181,16 +172,18 @@ header {
         letter-spacing: .15rem;
     }
 }
-
 h2 {
     @include font-size-REM(20);
     font-family: 'OpenSansBold';
     text-transform: uppercase;
 }
-
+main {
+    min-height: 100%;
+}
 .home {
     padding-bottom: 40px;
     padding-top: 40px;
+
     h2 {
         text-align: center;
     }
@@ -199,17 +192,18 @@ h2 {
         @include font-size-REM(17);
     }
 }
-
 .about {
     margin-top: 65px;
+
     .section-title {
         margin-top: 3px;
-        @media screen and (min-width: $screen-md-min) {
+
+        @media screen and (min-width:$screen-md-min) {
             text-align: right;
         }
     }
     p {
-        @media screen and (min-width: $screen-md-min) {
+        @media screen and (min-width:$screen-md-min) {
             padding-left: 0;
         }
         &.school {
@@ -224,6 +218,7 @@ h2 {
             @include font-size-REM(14);
             font-weight: 700;
             margin-top: 3px;
+
             > small {
                 font-family: 'OpenSansBoldItalic';
                 font-size: 80%;
@@ -237,8 +232,11 @@ h2 {
             margin: 0;
             padding: 0;
             vertical-align: top;
+
             &:before {
-                content: '+';
+                content: '\e250';
+                font-family: 'Glyphicons Halflings';
+                @include font-size-REM(9.5);
                 padding: 0 5px 5px;
                 margin-right: 5px;
                 color: #CF5C36;
@@ -254,7 +252,8 @@ h2 {
     }
     .position {
         padding-bottom: 25px;
-        @media screen and (min-width: $screen-md-min) {
+
+        @media screen and (min-width:$screen-md-min) {
             padding-left: 0;
         }
         &:last-child {
@@ -270,6 +269,7 @@ h2 {
         }
         .list-unstyled {
             font-family: 'OpenSansRegularItalic';
+
             li {
                 &:before {
                     content: '+';
@@ -283,15 +283,16 @@ h2 {
         }
     }
 }
-
 footer {
     background-color: #2e3740;
     color: $white;
     margin-top: 70px;
     padding-bottom: 15px;
     padding-top: 15px;
+
     a {
         color: $white;
+
         &:focus, &:hover {
             color: $white;
         }
