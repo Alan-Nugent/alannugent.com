@@ -1,0 +1,16 @@
+footer {
+    @extend .container-fluid;
+    background-color: #2e3740;
+    color: $white;
+    height: 6.1rem;
+    padding-bottom: 15px;
+    padding-top: 15px;
+
+    a {
+        color: $white;
+
+        &:focus, &:hover {
+            color: $white;
+        }
+    }
+}

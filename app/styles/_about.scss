@@ -1,0 +1,89 @@
+.about {
+    margin-top: 65px;
+
+    .section-title {
+        margin-top: 3px;
+
+        @media screen and (min-width:$screen-md-min) {
+            text-align: right;
+        }
+    }
+    p {
+        @media screen and (min-width:$screen-md-min) {
+            padding-left: 0;
+        }
+        &.school {
+            font-family: 'OpenSansBoldItalic';
+            @include font-size-REM(14);
+            margin-top: 0;
+        }
+    }
+    h3 {
+        &.position-title {
+            font-family: 'OpenSansRegular';
+            @include font-size-REM(14);
+            font-weight: 700;
+            margin-top: 3px;
+
+            > small {
+                font-family: 'OpenSansBoldItalic';
+                font-size: 80%;
+            }
+        }
+    }
+    .half {
+        li {
+            display: inline-block;
+            width: 47%;
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+
+            &:before {
+                content: '+';
+                padding: 0 5px 5px;
+                margin-right: 5px;
+                color: #CF5C36;
+                background-color: transparent;
+                display: inline-block;
+            }
+        }
+    }
+    .border-bottom-section {
+        border-bottom: 1px solid #2e3740;
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+    }
+    .position {
+        padding-bottom: 25px;
+
+        @media screen and (min-width:$screen-md-min) {
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-bottom: 50px;
+        }
+    }
+    .education {
+        h3 {
+            &.position-title {
+                @include font-size-REM(16);
+                margin-bottom: 0;
+            }
+        }
+        .list-unstyled {
+            font-family: 'OpenSansRegularItalic';
+
+            li {
+                &:before {
+                    content: '+';
+                    padding: 0 5px 5px;
+                    margin-right: 5px;
+                    color: #CF5C36;
+                    background-color: transparent;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
