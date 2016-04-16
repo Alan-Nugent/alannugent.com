@@ -1,0 +1,50 @@
+work {
+    @extend .row;
+    display: block;
+
+    website {
+        @extend .clearfix;
+        display: block;
+
+        @media (min-width:$screen-sm-min) {
+            display: flex;
+        }
+        figure {
+            @extend .col-sm-5;
+            background: #94B1C3;
+            padding: 100px 90px 100px 80px;
+
+            img {
+                @extend .img-responsive;
+            }
+            figcaption {
+                @extend .text-center;
+            }
+        }
+        description {
+            @extend .col-sm-7;
+            display: block;
+
+            @media (min-width:$screen-sm-min) {
+                display: inline-block;
+                padding-top: 125px;
+            }
+            h2 {
+                @include font-size-REM(26);
+            }
+            p {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        &:nth-child(even) {
+            figure {
+                background-color: $white;
+            }
+            description {
+                background: #ECCE66;
+            }
+        }
+    }
+}
