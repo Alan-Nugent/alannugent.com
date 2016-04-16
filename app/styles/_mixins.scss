@@ -1,0 +1,18 @@
+/*** custom mixins ***/
+
+//responsive text
+$browser-context: 14;
+
+@function no-unit($number) {
+    @return $number / ($number * 0 + 1);
+}
+
+@function em($pixels, $context: $browser-context) {
+    @return #{$pixels / $context}em;
+}
+
+@mixin font-size-REM($sizeValue: 1.6) {
+    font-size: no-unit($sizeValue) + px;
+    font-size: em(no-unit($sizeValue));
+    font-size: no-unit($sizeValue / 10) + rem;
+}

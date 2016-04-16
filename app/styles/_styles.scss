@@ -1,0 +1,47 @@
+html {
+    font-size: 100%;
+}
+
+body {
+    background: #e6dc37;
+    color: #2e3740;
+}
+
+header {
+    background: #fff;
+}
+
+.subheader {
+    background-color: #2e3740;
+    padding-bottom: 75px;
+    padding-top: 75px;
+    h1 {
+        color: #fff;
+        font-family: 'OpenSansBolder';
+        font-size: 26px;
+        text-transform: uppercase;
+        letter-spacing: .65rem;
+    }
+    p {
+        color: #fff;
+        font-family: 'OpenSansRegularItalic';
+        font-size: 18px;
+        letter-spacing: .15rem;
+    }
+}
+
+h2 {
+    font-size: 20px;
+    font-family: 'OpenSansBold';
+    text-transform: uppercase;
+}
+
+header {}
+
+.home {
+    padding-top: 40px;
+    p {
+        font-family: 'OpenSansRegularItalic';
+        font-size: 18px;
+    }
+}
