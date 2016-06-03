@@ -18,7 +18,6 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/work.html', 'text!lo
 
             initialize: function(options) {
                 this.language = (options && options.language) || 'en-us';
-
                 this.render();
             },
 
@@ -27,8 +26,19 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/work.html', 'text!lo
                     content: JSON.parse(content)
                 });
 
+                this.triggerCarousel();
+
                 this.$el.html(this.template);
                 return this;
+            },
+
+            triggerCarousel: function() {
+                $(function() {
+                    //$('#cgi-carousel').carousel('cycle');
+                });
+                setTimeout(function() {
+                    $('.carousel-control.right').click();
+                }, 0);
             }
         });
 

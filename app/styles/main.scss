@@ -1,86 +1,103 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+
 @import "variables-an";
 @import "mixins";
 @import "openSans";
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
 
 html {
-    font-size: 62.5%;
-    height: 100%;
+  font-size: 62.5%;
+  height: 100%;
 }
+
 body {
+  /* background: #e6dc37;*/
+  color: #2e3740;
+  font-family: 'OpenSansRegular';
 
-    /* background: #e6dc37;*/
-    color: #2e3740;
-    font-family: 'OpenSansRegular';
-    @include font-size-REM(14);
+  @include font-size-REM(14);
+
+  min-height: 100%;
+  position: relative;
+
+  wrapper {
+    display: block;
+    margin-bottom: -6.1rem;
     height: 100%;
 
-    wrapper {
-        display: block;
-        margin-bottom: -6.1rem;
-        min-height: 100%;
-
-        &:after {
-            content: "";
-            display: block;
-            height: 6.1rem;
-        }
+    &:after {
+      content: "";
+      display: block;
+      height: 6.1rem;
     }
+  }
 }
-h1 {
-}
+
+h1 {}
+
 h2 {
-    @include font-size-REM(20);
-    font-family: 'OpenSansBold';
-    text-transform: uppercase;
-}
-p {
-    @include font-size-REM(15);
+  @include font-size-REM(20);
 
-    &.lead {
-        font-family: 'OpenSansSemibold';
-        @include font-size-REM(17);
-    }
+  font-family: 'OpenSansBold';
+  text-transform: uppercase;
 }
+
+p {
+  @include font-size-REM(15);
+
+  &.lead {
+    font-family: 'OpenSansSemibold';
+
+    @include font-size-REM(17);
+  }
+}
+
 a {
-    color: #4472CA;
+  color: #4472CA;
 }
+
 @import "header";
 
 main {
-    @extend .container-fluid;
+  @extend .container-fluid;
 }
+
 @import "home";
 @import "about";
 @import "work";
 @import "footer";
 
 #screen-indicator {
-    position: absolute;
-    height: 0;
-    width: 0;
-    z-index: 1;
+  position: absolute;
+  height: 0;
+  width: 0;
+  z-index: 1;
 
-    @media (max-width:1199px) {
-        z-index: 8;
-    }
-    @media (max-width:991px) {
-        z-index: 7;
-    }
-    @media (max-width:767px) {
-        z-index: 6;
-    }
-    @media (min-width:480px) {
-        z-index: 5;
-    }
-    @media (min-width:768px) {
-        z-index: 4;
-    }
-    @media (min-width:992px) {
-        z-index: 3;
-    }
-    @media (min-width:1200px) {
-        z-index: 2;
-    }
+  @media (max-width: 1199px) {
+    z-index: 8;
+  }
+
+  @media (max-width: 991px) {
+    z-index: 7;
+  }
+
+  @media (max-width: 767px) {
+    z-index: 6;
+  }
+
+  @media (min-width: 480px) {
+    z-index: 5;
+  }
+
+  @media (min-width: 768px) {
+    z-index: 4;
+  }
+
+  @media (min-width: 992px) {
+    z-index: 3;
+  }
+
+  @media (min-width: 1200px) {
+    z-index: 2;
+  }
 }
