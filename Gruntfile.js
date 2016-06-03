@@ -351,8 +351,7 @@ module.exports = function(grunt) {
                         'vendor/**/*.{woff,svg,ttf,eot}',
                         'styles/**/*.{woff,svg,ttf,eot}',
                         'vendor/**/*.{png,jpg,jpeg,gif,webp}',
-                        'vendor/**/*.js',
-                        'bower_components/requirejs/require.js'
+                        'vendor/**/*.js'
                     ]
                 }]
             },
@@ -461,7 +460,7 @@ module.exports = function(grunt) {
         'assets',
         'sass',
         'useminPrepare',
-        //      'requirejs',
+        'requirejs',
         //'imagemin',
         'concat',
         'cssmin',
