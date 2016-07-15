@@ -1,0 +1,20 @@
+{
+	"headerH1": "Header",
+	"menuList": [{
+		"text": "Home",
+		"linkText": "#",
+		"title": "Home"
+	}, {
+		"text": "About",
+		"linkText": "#about",
+		"title": "About Me"
+	}, {
+		"text": "Work",
+		"linkText": "#work",
+		"title": "My Work"
+	}, {
+		"text": "Contact",
+		"linkText": "#contact",
+		"title": "Contact Me"
+	}]
+}
