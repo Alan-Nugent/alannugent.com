@@ -1,12 +1,10 @@
 header {
     @extend .container-fluid;
     background: #efefef;
-
     #headerLogo {
         color: #454B66;
         @include font-size-REM(44);
-
-        @media screen and (min-width:$screen-md-min) {
+        @media screen and (min-width: $screen-md-min) {
             @include font-size-REM(22);
         }
         margin: 10px 0 10px 10px;
@@ -14,12 +12,10 @@ header {
         line-height: .8;
         letter-spacing: .04rem;
         text-align: center;
-
         small {
             display: block;
             @include font-size-REM(22);
-
-            @media screen and (min-width:$screen-md-min) {
+            @media screen and (min-width: $screen-md-min) {
                 @include font-size-REM(13);
                 text-align: center;
             }
@@ -39,12 +35,11 @@ header {
         float: left;
         margin-right: 15px;
         margin-top: 10px;
-
-        @media screen and (min-width:$screen-xs-min) {
+        @media screen and (min-width: $screen-xs-min) {
             float: right;
             display: inline-block;
         }
-        @media screen and (max-width:$screen-md-min) {
+        @media screen and (max-width: $screen-md-min) {
             margin-left: 15px;
             margin-bottom: 10px;
         }
@@ -54,7 +49,6 @@ header {
             color: #fff;
         }
     }
-
     /* nav {
          //position: absolute !important;
          // width: 100%;
@@ -79,6 +73,7 @@ header {
          }
      }*/
 }
+
 subheader {
     @extend .row;
     @extend .text-center;
@@ -86,19 +81,19 @@ subheader {
     display: block;
     padding-bottom: 75px;
     padding-top: 75px;
-
     h1 {
+        @extend .col-sm-12;
         color: #CF5C36;
         font-family: 'OpenSansBolder';
         @include font-size-REM(25);
-
-        @media screen and (min-width:$screen-sm-min) {
+        @media screen and (min-width: $screen-sm-min) {
             @include font-size-REM(40);
         }
         text-transform: uppercase;
         letter-spacing: .65rem;
     }
     p {
+        @extend .col-sm-12;
         color: #fff;
         font-family: 'OpenSansLight';
         @include font-size-REM(18);

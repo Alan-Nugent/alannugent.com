@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /*** custom mixins ***/
 /*OpenSans font*/
+@import url(../../bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css);
 @font-face {
   font-family: 'OpenSansBold';
   src: url("font/opensans-bold-webfont.eot");
@@ -1601,7 +1602,7 @@ pre {
   .row:after, subheader:after, work:after {
     clear: both; }
 
-.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, work website figure, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, work website description, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, work website figure, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, work website description, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, subheader h1, subheader p, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
@@ -1764,7 +1765,7 @@ pre {
   margin-left: 100%; }
 
 @media (min-width: 768px) {
-  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, work website figure, .col-sm-6, .col-sm-7, work website description, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, work website figure, .col-sm-6, .col-sm-7, work website description, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, subheader h1, subheader p {
     float: left; }
   .col-sm-1 {
     width: 8.3333333333%; }
@@ -1788,7 +1789,7 @@ pre {
     width: 83.3333333333%; }
   .col-sm-11 {
     width: 91.6666666667%; }
-  .col-sm-12 {
+  .col-sm-12, subheader h1, subheader p {
     width: 100%; }
   .col-sm-pull-0 {
     right: auto; }
@@ -5757,6 +5758,9 @@ p {
 a {
   color: #4472CA; }
 
+abbr[title] {
+  border-bottom: none; }
+
 header {
   background: #efefef;
   /* nav {
@@ -5942,12 +5946,14 @@ work {
     display: block; }
     @media (min-width: 768px) {
       work website {
-        display: flex; } }
+        display: flex;
+        flex-wrap: wrap; } }
     work website figure {
+      display: flex;
       background: #94B1C3;
       padding: 100px 90px 100px 80px; }
     work website description {
-      display: block; }
+      display: flex; }
       @media (min-width: 768px) {
         work website description {
           display: inline-block;
