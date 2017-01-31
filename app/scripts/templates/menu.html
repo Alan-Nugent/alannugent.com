@@ -1,0 +1,10 @@
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+	<a class="navmenu-brand" href="#">Brand</a>
+	<ul class="nav navmenu-nav">
+		<% _.each(content.menuList, function(obj, index){ %>
+		<li>
+			<a href="<%= obj.linkText %>" title="<%= obj.title %>"><%= obj.text %></a>
+		</li>
+		<% }) %>
+	</ul>
+</nav>

@@ -22,7 +22,7 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/header.html', 'text!
 
                 this.$el.html(this.template);
 
-                console.log('about');
+                //console.log('about');
                 return this;
             }
         });

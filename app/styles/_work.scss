@@ -6,9 +6,11 @@ work {
         display: block;
         @media (min-width: $screen-sm-min) {
             display: flex;
+            flex-wrap: wrap;
         }
         figure {
             @extend .col-sm-5;
+            display: flex;
             background: #94B1C3;
             padding: 100px 90px 100px 80px;
             img {
