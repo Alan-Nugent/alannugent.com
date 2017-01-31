@@ -32,6 +32,11 @@ define(['jquery', 'backbone', 'views/contentView', 'views/aboutView', 'views/con
                 this.workView = new WorkView();
             },
             routerChanged: function(e) {
+                var menuOpen = ($('.offcanvas').hasClass('in')) ? true : false;
+                if (menuOpen) {
+                    $('.navmenu').offcanvas('toggle');
+                }
+
                 //add functions here to run on page load and change
                 Helper.screenWidthDetection();
             }

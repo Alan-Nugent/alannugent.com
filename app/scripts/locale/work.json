@@ -1,4 +1,20 @@
 {
 	"header": "My Work",
-	"subheader": "Some of the sites I have built or had contributions."
+	"subheader": "Some of the sites I have built or had contributions.",
+	"myuspto_header": "MyUSPTO",
+	"myuspto_desc": "MyUSPTO is a personalized collection of widgets that deliver recent news, information, and status changes to account holders. It was built using the latest technology stacks as well as meeting Section 508 requirements.",
+	"cfp_header": "Catalogue for Philanthropy",
+	"cfp_desc": "The Catalogue for Philanthropy is the only non-profit group in the Greater Washington DC area dedicatted to being locally focused. I was responsible for the design and development of this site in 2015. This site was built to meet the basic Section 508 standards.",
+	"dfc_header": "Medicare.gov - Dialysis Facility Compare",
+	"dfc_desc": "The Dialysis Facility Compare website is a sub site of the Medicare website. This redevelopment utilizes a single page application framework as well as many other leading technologies. It was built to meet advanced Section 508 concepts.",
+	"phr_header": "Medicare.gov - Physician Compare",
+	"phr_desc": "The Physician Compare website is a sub site of the Medicare website. The work I completed on this site involved a deep clean of the HTML and SASS in order to create a reusable grid system for all of the Medicare websites. These changes included integrating indepth Section 508 solutions in order to make the Physicians site more accessible.",
+	"mgov_header": "Medicare.gov",
+	"mgov_desc": "The Medicare.gov website is the offical website for Medicare. This site has XX millions of users annually. I was responsible for UI development and meeting Section 508 requirements.",
+	"assets_header": "Assets.CMS.gov",
+	"assets_desc": "The Assets website was created for all Centers for Medicare and Medicaid Services (CMS) to utilize in order to generate Section 508 tested websites. This site extended existing libraries such as Bootstrap and jQuery UI. Much of the research and application on this site has been incorperated into the current jQuery UI release. ",
+	"idg_m_header": "Identity Guard Member Site",
+	"idg_m_desc": "The Identity Guard member website is utilized by more than 12 million users as a dashboard to monitor the prevention of credit and identity theft. I was responsible for the implementation of the UI for this site. At the time of development, this sit met the 'WCAG ADA 2.0 AA' accessibility requirements.",
+	"idg_header": "Identity Guard",
+	"idg_desc": "Identity Guard is one of the leading services for monitoring credit and preventing identity theft. I was responsible for implementing the updated UI design. This site was built using OpenCMS, an open source Java based content management system."
 }

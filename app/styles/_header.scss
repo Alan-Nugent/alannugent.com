@@ -1,12 +1,10 @@
 header {
     @extend .container-fluid;
     background: #efefef;
-
     #headerLogo {
         color: #454B66;
         @include font-size-REM(44);
-
-        @media screen and (min-width:$screen-md-min) {
+        @media screen and (min-width: $screen-md-min) {
             @include font-size-REM(22);
         }
         margin: 10px 0 10px 10px;
@@ -14,12 +12,10 @@ header {
         line-height: .8;
         letter-spacing: .04rem;
         text-align: center;
-
         small {
             display: block;
             @include font-size-REM(22);
-
-            @media screen and (min-width:$screen-md-min) {
+            @media screen and (min-width: $screen-md-min) {
                 @include font-size-REM(13);
                 text-align: center;
             }
@@ -32,53 +28,47 @@ header {
             text-decoration: none;
         }
     }
-    .main-menu-toggle {
+    .navbar-toggle {
         display: block;
-        border-color: #0160aa;
-        color: #0160aa;
+        border-color: #2A2D34;
+        color: #2A2D34;
         float: left;
         margin-right: 15px;
         margin-top: 10px;
-
-        @media screen and (min-width:$screen-xs-min) {
+        padding-bottom: 5px;
+        @media screen and (min-width: $screen-xs-min) {
             float: right;
-            display: inline-block;
         }
-        @media screen and (max-width:$screen-md-min) {
+        @media screen and (max-width: $screen-md-min) {
             margin-left: 15px;
             margin-bottom: 10px;
         }
-        &:focus, &:hover {
-            background-color: #0160aa;
-            border-color: #0160aa;
+        &:focus,
+        &:hover {
+            background-color: #2A2D34;
+            border-color: #2A2D34;
             color: #fff;
         }
     }
-
-    /* nav {
-         //position: absolute !important;
-         // width: 100%;
-         //top: 144px;
-         @media screen and (min-width: $screen-md-min) {
-             // right: 0px;
-             // width: 100px;
-             // top: 44px;
-         }
-         background-color: #efefef;
-         li {
-             @media screen and (max-width: $screen-md-min) {
-                 float: none !important;
-                 text-align: center;
-             }
-             a {
-                 font-family: 'OpenSansSemibold';
-                 font-size: 15px;
-                 padding: 0 15px;
-                 text-transform: uppercase;
-             }
-         }
-     }*/
 }
+
+.navmenu {
+    &.navmenu-default {
+        &.navmenu-fixed-left {
+            &.offcanvas {
+                a {
+                    font-size: 17px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    &:focus, &:hover {
+                        background: #eee;
+                    }
+                }
+            }
+        }
+    }
+}
+
 subheader {
     @extend .row;
     @extend .text-center;
@@ -86,13 +76,11 @@ subheader {
     display: block;
     padding-bottom: 75px;
     padding-top: 75px;
-
     h1 {
         color: #CF5C36;
         font-family: 'OpenSansBolder';
         @include font-size-REM(25);
-
-        @media screen and (min-width:$screen-sm-min) {
+        @media screen and (min-width: $screen-sm-min) {
             @include font-size-REM(40);
         }
         text-transform: uppercase;

@@ -5,6 +5,7 @@ require.config({
         underscore: '../bower_components/lodash/dist/lodash',
         bootstrap: '../bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
         text: '../bower_components/requirejs-text/text',
+        jasny: '../bower_components/jasny-bootstrap/dist/js/jasny-bootstrap',
 
         headerView: '../scripts/views/headerView',
         footerView: '../scripts/views/footerView'
@@ -13,6 +14,9 @@ require.config({
         bootstrap: {
             deps: ['jquery'],
             exports: 'jquery'
+        },
+        jasny: {
+            deps: ['jquery']
         }
     }
 });

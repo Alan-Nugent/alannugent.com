@@ -24,36 +24,88 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         yeoman: yeomanConfig,
-        watch: {
-            options: {
-                nospawn: true,
-                livereload: true
-            },
-            sass: {
-                files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}', '<%= yeoman.app %>/styles/_partials/**/*.{scss,sass}'],
-                tasks: ['sass']
-            },
-            livereload: {
+        bower: {
+            install: {
                 options: {
-                    livereload: grunt.option('livereloadport') || LIVERELOAD_PORT
-                },
-                files: [
-                    '<%= yeoman.app %>/*.html',
-                    '{.tmp,<%= yeoman.app %>}/styles/**/*.css',
-                    '{.tmp,<%= yeoman.app %>}/scripts/**/*.js',
-                    '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp}',
-                    'test/spec/**/*.js'
-                ]
+                    targetDir: 'app/vendor',
+                    layout: 'byComponent',
+                    install: true,
+                    verbose: false,
+                    cleanTargetDir: false,
+                    cleanBowerDir: false,
+                    bowerOptions: {}
+                }
+            },
+            options: {
+                exclude: ['modernizr']
+            },
+            all: {
+                rjsConfig: '<%= yeoman.app %>/scripts/main.js'
             }
         },
-        sass: {
-            dev: {
+
+        cssmin: {
+            dist: {
                 files: {
-                    //'<%= yeoman.app %>/styles/bootstrap.css': '<%= yeoman.app %>/styles/bootstrap.scss',
-                    '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+                    '<%= yeoman.dist %>/styles/main.css': [
+                        '.tmp/styles/main.css',
+                        '<%= yeoman.app %>/styles/main.css'
+                    ],
+                    '<%= yeoman.dist %>/styles/bootstrap.css': [
+                        '.tmp/styles/bootstrap.css',
+                        '<%= yeoman.app %>/styles/bootstrap.css'
+                    ]
                 }
             }
         },
+
+        copy: {
+            dist: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>',
+                    dest: '<%= yeoman.dist %>',
+                    src: [
+                        '*.{ico,txt}',
+                        '.htaccess',
+                        'images/**/*.{png,jpg,jpeg,gif,webp}',
+                        'fonts/**/*.*',
+                        './*.html',
+                        'vendor/**/*.{woff,svg,ttf,eot,woff2}',
+                        'styles/**/*.{woff,svg,ttf,eot,woff2}',
+                        'vendor/**/*.{png,jpg,jpeg,gif,webp}',
+                        'vendor/**/*.js'
+                    ]
+                }]
+            },
+            fonts: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/assets/fonts/bootstrap',
+                    dest: '<%= yeoman.dist %>/styles/font',
+                    src: [
+                        '**/*.{woff,woff2,svg,ttf,eot}'
+                    ]
+                }]
+            }
+        },
+
+        docco: {
+            run: {
+                src: ['app/scripts/**/*.js', 'test/jasmine/**/*.js'],
+                options: {
+                    output: 'docs/'
+                }
+            }
+        },
+
+        clean: {
+            dist: ['.tmp', '<%= yeoman.dist %>/*'],
+            server: '.tmp'
+        },
+
         connect: {
             options: {
                 port: SERVER_PORT,
@@ -115,37 +167,17 @@ module.exports = function(grunt) {
             }
         },
 
-        open: {
-            server: {
-                path: 'http://localhost:<%= connect.options.port %>'
-            }
+        concurrent: {
+            dist: ['copy:dist', 'copy:fonts']
         },
-
-        clean: {
-            dist: ['.tmp', '<%= yeoman.dist %>/*'],
-            server: '.tmp',
-            assets: ['app/bower_components/globalassets', 'app/bower_components/cwsassets', 'app/bower_components/healthcareassets', 'app/bower_components/medicareassets', 'app/bower_components/comparetoolassets']
-        },
-
-        // Dependency loader configuration provided by requirejs
-        requirejs: {
+        imagemin: {
             dist: {
-                // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
-                options: {
-                    // `name` and `out` is set by grunt-usemin
-                    baseUrl: yeomanConfig.app + '/scripts',
-                    optimize: 'none',
-                    preserveLicenseComments: false,
-                    findNestedDependencies: true,
-                    useStrict: true,
-                    wrap: true,
-                    //temp
-                    name: 'main',
-                    out: 'dist\\scripts\\main.js',
-                    mainConfigFile: 'app/scripts/config/config.js',
-                    include: ['main']
-                        //uglify2: {} // https://github.com/mishoo/UglifyJS2
-                }
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>/images',
+                    src: '**/*.{png,jpg,jpeg}',
+                    dest: '<%= yeoman.dist %>/images'
+                }]
             }
         },
 
@@ -288,6 +320,63 @@ module.exports = function(grunt) {
             "customTests": []
         },
 
+        open: {
+            server: {
+                path: 'http://localhost:<%= connect.options.port %>'
+            }
+        },
+
+        plato: {
+            run: {
+                files: {
+                    'report': ['app/scripts/**/*.js', 'test/jasmine/**/*.js'],
+                }
+            },
+        },
+
+        // Dependency loader configuration provided by requirejs
+        requirejs: {
+            dist: {
+                // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
+                options: {
+                    // `name` and `out` is set by grunt-usemin
+                    baseUrl: yeomanConfig.app + '/scripts',
+                    optimize: 'none',
+                    preserveLicenseComments: false,
+                    findNestedDependencies: true,
+                    useStrict: true,
+                    wrap: true,
+                    //temp
+                    name: 'main',
+                    out: 'dist\\scripts\\main.js',
+                    mainConfigFile: 'app/scripts/config/config.js',
+                    include: ['main']
+                    //uglify2: {} // https://github.com/mishoo/UglifyJS2
+                }
+            }
+        },
+
+        rev: {
+            dist: {
+                files: {
+                    src: [
+                        '<%= yeoman.dist %>/scripts/**/*.js',
+                        '<%= yeoman.dist %>/styles/**/*.css'
+                        //'<%= yeoman.dist %>/images/**/*.{png,jpg,jpeg,gif,webp}',
+                        //'<%= yeoman.dist %>/styles/fonts/**/*.*',
+                    ]
+                }
+            }
+        },
+
+        sass: {
+            dev: {
+                files: {
+                    //'<%= yeoman.app %>/styles/bootstrap.css': '<%= yeoman.app %>/styles/bootstrap.scss',
+                    '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+                }
+            }
+        },
 
         useminPrepare: {
             html: '<%= yeoman.app %>/index.html',
@@ -310,121 +399,29 @@ module.exports = function(grunt) {
             }
         },
 
-        imagemin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/images',
-                    src: '**/*.{png,jpg,jpeg}',
-                    dest: '<%= yeoman.dist %>/images'
-                }]
-            }
-        },
-        cssmin: {
-            dist: {
-                files: {
-                    '<%= yeoman.dist %>/styles/main.css': [
-                        '.tmp/styles/main.css',
-                        '<%= yeoman.app %>/styles/main.css'
-                    ],
-                    '<%= yeoman.dist %>/styles/bootstrap.css': [
-                        '.tmp/styles/bootstrap.css',
-                        '<%= yeoman.app %>/styles/bootstrap.css'
-                    ]
-                }
-            }
-        },
-
-        copy: {
-            dist: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= yeoman.app %>',
-                    dest: '<%= yeoman.dist %>',
-                    src: [
-                        '*.{ico,txt}',
-                        '.htaccess',
-                        'images/**/*.{png,jpg,jpeg,gif,webp}',
-                        'fonts/**/*.*',
-                        './*.html',
-                        'vendor/**/*.{woff,svg,ttf,eot}',
-                        'styles/**/*.{woff,svg,ttf,eot}',
-                        'vendor/**/*.{png,jpg,jpeg,gif,webp}',
-                        'vendor/**/*.js'
-                    ]
-                }]
-            },
-            assets: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.cwd %>/app/bower_components/globalassets',
-                    src: ['**'],
-                    dest: 'app/vendor/globalassets'
-                }]
-            },
-            fonts: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/assets/fonts/bootstrap',
-                    dest: '<%= yeoman.dist %>/styles/font',
-                    src: [
-                        '**/*.{woff,woff2,svg,ttf,eot}'
-                    ]
-                }]
-            }
-        },
-
-        bower: {
-            install: {
-                options: {
-                    targetDir: 'app/vendor',
-                    layout: 'byComponent',
-                    install: true,
-                    verbose: false,
-                    cleanTargetDir: false,
-                    cleanBowerDir: false,
-                    bowerOptions: {}
-                }
-            },
+        watch: {
             options: {
-                exclude: ['modernizr']
+                nospawn: true,
+                livereload: true
             },
-            all: {
-                rjsConfig: '<%= yeoman.app %>/scripts/main.js'
-            }
-        },
-
-        plato: {
-            run: {
-                files: {
-                    'report': ['app/scripts/**/*.js', 'test/jasmine/**/*.js'],
-                }
+            sass: {
+                files: ['<%= yeoman.app %>/styles/**/*.{scss,sass}', '<%= yeoman.app %>/styles/_partials/**/*.{scss,sass}'],
+                tasks: ['sass']
             },
-        },
-
-        docco: {
-            run: {
-                src: ['app/scripts/**/*.js', 'test/jasmine/**/*.js'],
+            livereload: {
                 options: {
-                    output: 'docs/'
-                }
-            }
-        },
-
-        rev: {
-            dist: {
-                files: {
-                    src: [
-                        '<%= yeoman.dist %>/scripts/**/*.js',
-                        '<%= yeoman.dist %>/styles/**/*.css',
-                        //'<%= yeoman.dist %>/images/**/*.{png,jpg,jpeg,gif,webp}',
-                        //'<%= yeoman.dist %>/styles/fonts/**/*.*',
-                    ]
-                }
+                    livereload: grunt.option('livereloadport') || LIVERELOAD_PORT
+                },
+                files: [
+                    '<%= yeoman.app %>/*.html',
+                    '{.tmp,<%= yeoman.app %>}/styles/**/*.css',
+                    '{.tmp,<%= yeoman.app %>}/scripts/**/*.js',
+                    '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp}',
+                    'test/spec/**/*.js'
+                ]
             }
         }
+
     });
 
     grunt.registerTask('serve', function(target) {
@@ -435,20 +432,10 @@ module.exports = function(grunt) {
                 //'configureProxies:server',
                 'connect:dist:keepalive'
             ]);
-        } else if (target === 'offline') {
-            return grunt.task.run([
-                'clean:server',
-                'sass',
-                //'configureProxies:server',
-                'connect:livereload',
-                'watch'
-            ]);
         } else {
             grunt.task.run([
                 'clean:server',
-                'assets',
                 'sass',
-                //'configureProxies:server',
                 'connect:livereload',
                 'watch'
             ]);
@@ -457,26 +444,20 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'assets',
         'sass',
         'useminPrepare',
         'requirejs',
-        //'imagemin',
         'concat',
         'cssmin',
         'uglify',
-        'copy:dist',
-        'copy:fonts',
+        'concurrent:dist',
         'rev',
         'usemin'
     ]);
 
-    grunt.registerTask('assets', [
-        'clean:assets', 'bower:install', 'copy:assets'
-    ]);
 
     grunt.registerTask('init', [
-        'bower:install', 'copy:assets', 'serve'
+        'bower:install', 'serve'
     ]);
 
     grunt.registerTask('unit:test', function(target) {

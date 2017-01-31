@@ -1,15 +1,13 @@
 .about {
     margin-top: 65px;
-
     .section-title {
         margin-top: 3px;
-
-        @media screen and (min-width:$screen-md-min) {
+        @media screen and (min-width: $screen-md-min) {
             text-align: right;
         }
     }
     p {
-        @media screen and (min-width:$screen-md-min) {
+        @media screen and (min-width: $screen-md-min) {
             padding-left: 0;
         }
         &.school {
@@ -24,21 +22,31 @@
             @include font-size-REM(14);
             font-weight: 700;
             margin-top: 3px;
-
             > small {
-                font-family: 'OpenSansBoldItalic';
-                font-size: 80%;
+                font-family: 'OpenSansSemiboldItalic';
+                font-size: 72%;
             }
         }
     }
     .half {
         li {
-            display: inline-block;
             width: 47%;
+        }
+    }
+    .three-quarter {
+        li {
+            width: 32%;
+        }
+    }
+    .half, .three-quarter {
+        li {
+            display: inline-block;
             margin: 0;
             padding: 0;
             vertical-align: top;
-
+            @media (max-width: $screen-sm) {
+                width: 100%;
+            }
             &:before {
                 content: '+';
                 padding: 0 5px 5px;
@@ -56,8 +64,7 @@
     }
     .position {
         padding-bottom: 25px;
-
-        @media screen and (min-width:$screen-md-min) {
+        @media screen and (min-width: $screen-md-min) {
             padding-left: 0;
         }
         &:last-child {
@@ -73,7 +80,6 @@
         }
         .list-unstyled {
             font-family: 'OpenSansRegularItalic';
-
             li {
                 &:before {
                     content: '+';

@@ -1,0 +1,38 @@
+contact {
+    @extend .row;
+    display: block;
+    p {
+        &.first {
+            @extend .col-sm-7;
+            @extend .lead;
+            margin-top: 65px;
+            font-size: 4rem;
+        }
+        &.desc {
+            @extend .col-sm-7;
+        }
+    }
+    ul {
+        @extend .col-sm-7;
+        @extend .list-inline;
+        li {
+            @media (max-width: $screen-sm) {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            @media (min-width: $screen-sm) {
+                &::first-child {
+                    margin-right: 10px;
+                }
+            }
+        }
+        .email-address {
+            a {
+                span {
+                    @extend .sr-only;
+                }
+            }
+        }
+    }
+}

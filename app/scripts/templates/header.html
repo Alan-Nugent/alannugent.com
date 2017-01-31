@@ -1,17 +1,28 @@
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+    <ul class="nav navmenu-nav">
+        <% _.each(content.headerNav, function(obj, index){ %>
+            <li>
+                <a href="<%= obj.linkText %>" title="<%= obj.title %>">
+                    <%= obj.text %>
+                </a>
+            </li>
+            <% }) %>
+            <li>
+                <button class="btn-link collapsed" type="button" data-toggle="collapse" data-target="#offsetCollapse" aria-expanded="false" aria-controls="offsetCollapse">
+                    Pages of Interest
+                </button>
+                <ul class="collapse list-unstyled" id="offsetCollapse" aria-expanded="false">
+                    <li><a href="">test</a></li>
+                    <li><a href="">test2</a></li>
+                    <li><a href="">test3</a></li>
+                </ul>
+            </li>
+    </ul>
+</nav>
 <div class="row">
-	<a class="pull-left" href="/#" title="Alan Nugent - Front end developer" id="headerLogo">Alan Nugent<small>Front End Developer</small></a>
-	<button class="btn btn-default main-menu-toggle" data-toggle="collapse" data-target="#header-navigation">
-	<span class="glyphicon glyphicon-menu-hamburger">
-	<span class="sr-only">Toggle Menu</span>
-	</span>
-	</button>
-	<nav id="header-navigation">
-		<ul class="nav nav-pills">
-			<% _.each(content.headerNav, function(obj, index){ %>
-			<li>
-				<a href="<%= obj.linkText %>" title="<%= obj.title %>"><%= obj.text %></a>
-			</li>
-			<% }) %>
-		</ul>
-	</nav>
+    <a class="pull-left" href="/#" title="Alan Nugent - Front end developer" id="headerLogo">Alan Nugent<small>Front End Developer</small></a>
+    <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body">
+        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+        <span class="sr-only">Toggle Menu</span>
+    </button>
 </div>
