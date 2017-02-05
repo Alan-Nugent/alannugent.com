@@ -83,7 +83,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: '<%= yeoman.app %>/bower_components/bootstrap-sass-official/assets/fonts/bootstrap',
+                    cwd: '<%= yeoman.app %>/styles/font',
                     dest: '<%= yeoman.dist %>/styles/font',
                     src: [
                         '**/*.{woff,woff2,svg,ttf,eot}'
@@ -369,6 +369,18 @@ module.exports = function(grunt) {
             }
         },
 
+
+        replace: {
+            glyphPath: {
+                src: ['<%= yeoman.dist %>/styles/*.css'],
+                overwrite: true, // overwrite matched source files 
+                replacements: [{
+                    from: '../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/',
+                    to: './font/'
+                }]
+            }
+        },
+
         sass: {
             dev: {
                 files: {
@@ -452,7 +464,8 @@ module.exports = function(grunt) {
         'uglify',
         'concurrent:dist',
         'rev',
-        'usemin'
+        'usemin',
+        'replace:glyphPath'
     ]);
 
 
