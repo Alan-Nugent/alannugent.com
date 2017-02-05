@@ -13,6 +13,7 @@ work {
             display: flex;
             background: #94B1C3;
             padding: 100px 90px 100px 80px;
+            flex-direction: column;
             img {
                 @extend .img-responsive;
             }

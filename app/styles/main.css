@@ -6179,7 +6179,8 @@ work {
     work website figure {
       display: flex;
       background: #94B1C3;
-      padding: 100px 90px 100px 80px; }
+      padding: 100px 90px 100px 80px;
+      flex-direction: column; }
       work website figure figcaption a {
         color: #2e3740;
         text-decoration: underline; }
